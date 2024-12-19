@@ -45,7 +45,30 @@ class OnBoardingScreen extends StatelessWidget {
                       style: TextStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: size.width * 0.06),
-                    )
+                    ),
+                    SizedBox(
+                      height: size.height * 0.01,
+                    ),
+                    const Text(
+                      "Check Out the App and Start Cooking delicious meals!",
+                      style:
+                          TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+                    ),
+                    SizedBox(
+                      height: size.height * 0.032,
+                    ),
+                    ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.blue,
+                            fixedSize:
+                                Size(size.width* 0.8, size.height*0.055)),
+                        onPressed: () {},
+                        child: const Text(
+                          "Get Started",
+                          style: TextStyle(
+                            fontSize: 18,
+                              fontWeight: FontWeight.bold, color: Colors.white),
+                        ))
                   ],
                 ),
               ),
