@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recipe/screens/main_screen.dart';
 import 'package:recipe/utils/image_path.dart';
 
 class OnBoardingScreen extends StatelessWidget {
@@ -61,13 +62,19 @@ class OnBoardingScreen extends StatelessWidget {
                         style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.blue,
                             fixedSize:
-                                Size(size.width* 0.8, size.height*0.055)),
-                        onPressed: () {},
+                                Size(size.width * 0.8, size.height * 0.055)),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const MainScreen()));
+                        },
                         child: const Text(
                           "Get Started",
                           style: TextStyle(
-                            fontSize: 18,
-                              fontWeight: FontWeight.bold, color: Colors.white),
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
                         ))
                   ],
                 ),
