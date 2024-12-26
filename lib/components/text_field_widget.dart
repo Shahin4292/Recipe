@@ -7,7 +7,7 @@ class TextFieldWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.sizeOf(context);
     return Container(
-      height: size.height * 0.055,
+      height: size.width * 0.1,
       decoration:
           BoxDecoration(borderRadius: BorderRadius.circular(12), boxShadow: [
         BoxShadow(

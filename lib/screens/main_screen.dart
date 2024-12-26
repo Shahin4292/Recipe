@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:recipe/components/bottom_nav_bar.dart';
 
+import 'home_screen.dart';
+
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
 
@@ -48,9 +50,7 @@ class _MainScreenState extends State<MainScreen> {
           });
         },
         children: const [
-          Center(
-            child: Text("page 1"),
-          ),
+          HomeScreen(),
           Center(
             child: Text("page 2"),
           ),

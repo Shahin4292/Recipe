@@ -15,7 +15,7 @@ class OnBoardingScreen extends StatelessWidget {
         child: Stack(
           children: [
             Positioned(
-                top: 0,
+              top: 30,
                 child: Container(
                   height: size.height * 0.79,
                   width: size.width,
