@@ -8,16 +8,33 @@ class DetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-        child: Container(
-          height: 300,
-          width: MediaQuery.sizeOf(context).width,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-              image: DecorationImage(
-                  image: NetworkImage(imageUrl!), fit: BoxFit.cover)),
+      body: SafeArea(
+        child: Stack(
+          children: [
+            Container(
+              height: 400,
+              width: MediaQuery.sizeOf(context).width,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  image: DecorationImage(
+                      image: NetworkImage(imageUrl!), fit: BoxFit.cover)),
+            ),
+            Positioned(
+                top: 15,
+                left: 15,
+                child: GestureDetector(
+                  onTap: (){
+                    Navigator.pop(context);
+                  },
+                  child: CircleAvatar(
+                      backgroundColor: Colors.grey,
+                      child: Icon(
+                        Icons.arrow_back_ios_new,
+                        color: Colors.white,
+                        size: 20,
+                      )),
+                ))
+          ],
         ),
       ),
     );
