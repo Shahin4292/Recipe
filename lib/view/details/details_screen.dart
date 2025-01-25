@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:recipe/utils/modify_text.dart';
+import 'package:recipe/view/details/widget/circular_button.dart';
 
 class DetailsScreen extends StatelessWidget {
   final String? imageUrl;
   final String? name;
+  final String? time;
 
-  const DetailsScreen({super.key, this.imageUrl, this.name});
+  const DetailsScreen({super.key, this.imageUrl, this.name, this.time});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Column(
+          spacing: 20,
           children: [
             Stack(
               children: [
@@ -40,12 +43,43 @@ class DetailsScreen extends StatelessWidget {
                     ))
               ],
             ),
-            ModifyText(
-              text: name!,
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
-              color: Colors.black,
-            ),
+            Padding(
+              padding: EdgeInsets.all(15),
+              child: Column(
+                spacing: 10,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ModifyText(
+                    text: name!,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                  Text("$time min"),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      CircularButton(
+                        icon: Icons.share,
+                        label: 'Share',
+                      ),
+                      CircularButton(
+                        icon: Icons.bookmark_border,
+                        label: 'Save',
+                      ),
+                      CircularButton(
+                        icon: Icons.monitor_heart_outlined,
+                        label: 'Calories',
+                      ),
+                      CircularButton(
+                        icon: Icons.table_chart_outlined,
+                        label: 'Unit cart',
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            )
           ],
         ),
       ),
