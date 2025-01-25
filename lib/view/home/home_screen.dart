@@ -10,6 +10,7 @@ import '../../res/components/internet_exceptions_widget.dart';
 import '../../res/components/tab_bar_widget.dart';
 import '../../res/components/text_field_widget.dart';
 import '../../viewModel/controller/home controller.dart';
+import '../details/details_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
@@ -64,6 +65,9 @@ class HomeScreen extends StatelessWidget {
                 height: size.height * 0.02,
               ),
               TabBarWidget(),
+              SizedBox(
+                height: size.height * 0.03,
+              ),
               Expanded(
                 child: Obx(() {
                   switch (homeController.rxRequestStatus.value) {
@@ -82,26 +86,77 @@ class HomeScreen extends StatelessWidget {
                         });
                       }
                     case Status.COMPLETE:
-                      return ListView.builder(
-                          itemCount:
-                              homeController.userList.value.recipes!.length,
-                          itemBuilder: (context, index) {
-                            return Card(
-                              child: ListTile(
-                                leading: CircleAvatar(
-                                  backgroundImage: NetworkImage(homeController
-                                      .userList.value.recipes![index].image
-                                      .toString()),
+                      return ListView.separated(
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 12),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => DetailsScreen(
+                                                  imageUrl: homeController
+                                                      .userList
+                                                      .value
+                                                      .recipes![index]
+                                                      .image
+                                                      .toString(),
+                                                )));
+                                  },
+                                  child: Container(
+                                    height: 250,
+                                    width: 250,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(12),
+                                      image: DecorationImage(
+                                          fit: BoxFit.cover,
+                                          image: NetworkImage(homeController
+                                              .userList
+                                              .value
+                                              .recipes![index]
+                                              .image
+                                              .toString())),
+                                    ),
+                                    child: Stack(
+                                      children: [
+                                        Positioned(
+                                            bottom: 10,
+                                            right: 10,
+                                            child: Icon(
+                                                Icons.favorite_border_rounded))
+                                      ],
+                                    ),
+                                  ),
                                 ),
-                                title: Text(homeController
-                                    .userList.value.recipes![index].mealType
-                                    .toString()),
-                                subtitle: Text(homeController
-                                    .userList.value.recipes![index].name
-                                    .toString()),
-                              ),
-                            );
-                          });
+                                Text(
+                                  homeController
+                                      .userList.value.recipes![index].mealType
+                                      .toString(),
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                Text(
+                                  homeController
+                                      .userList.value.recipes![index].name
+                                      .toString(),
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold),
+                                )
+                              ],
+                            ),
+                          );
+                        },
+                        separatorBuilder: (context, index) => Container(),
+                        itemCount:
+                            homeController.userList.value.recipes!.length,
+                      );
                   }
                 }),
               ),

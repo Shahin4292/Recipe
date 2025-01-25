@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:recipe/components/bottom_nav_bar.dart';
 
-import 'home_screen.dart';
+import '../../res/components/bottom_nav_bar.dart';
+import '../home/home_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -49,18 +49,18 @@ class _MainScreenState extends State<MainScreen> {
             currentIndex = index;
           });
         },
-        children: const [
+        children: [
           HomeScreen(),
-          Center(
+          const Center(
             child: Text("page 2"),
           ),
-          Center(
+          const Center(
             child: Text("page 3"),
           ),
-          Center(
+          const Center(
             child: Text("page 4"),
           ),
-          Center(
+          const Center(
             child: Text("page 5"),
           ),
         ],

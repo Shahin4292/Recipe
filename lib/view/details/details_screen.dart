@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class DetailsScreen extends StatelessWidget {
   final String? imageUrl;
+  final String? name;
 
-  const DetailsScreen({super.key, this.imageUrl});
+  const DetailsScreen({super.key, this.imageUrl, this.name});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class DetailsScreen extends StatelessWidget {
                 top: 15,
                 left: 15,
                 child: GestureDetector(
-                  onTap: (){
+                  onTap: () {
                     Navigator.pop(context);
                   },
                   child: CircleAvatar(
