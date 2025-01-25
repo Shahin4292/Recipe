@@ -11,6 +11,8 @@ class DetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final h = MediaQuery.sizeOf(context).height;
+    final w = MediaQuery.sizeOf(context).width;
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -76,6 +78,59 @@ class DetailsScreen extends StatelessWidget {
                         label: 'Unit cart',
                       ),
                     ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ModifyText(
+                        text: "Direction",
+                        fontWeight: FontWeight.bold,
+                        fontSize: w * 0.06,
+                      ),
+                      ElevatedButton(
+                          onPressed: () {},
+                          child: ModifyText(
+                            text: "Start",
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                          )),
+                    ],
+                  ),
+                  Container(
+                    height: h * .07,
+                    width: w,
+                    color: Colors.white,
+                    child: Row(
+                      children: [
+                        Expanded(
+                            flex: 3,
+                            child: ClipPath(
+                              child: Container(
+                                color: Colors.redAccent,
+                                child: Center(
+                                  child: ModifyText(
+                                    text: "Ingredients Required",
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: w * .05,
+                                  ),
+                                ),
+                              ),
+                            )),
+                        Expanded(
+                            flex: 1,
+                            child: Center(
+                              child: Text(
+                                textAlign: TextAlign.center,
+                                "6\nItems",
+                                style: TextStyle(
+                                    fontSize: w * .04,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black),
+                              ),
+                            ))
+                      ],
+                    ),
                   )
                 ],
               ),
