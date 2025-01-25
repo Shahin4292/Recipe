@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:recipe/screens/main_screen.dart';
-import 'package:recipe/utils/image_path.dart';
+
+import '../../res/assets/image_path.dart';
+import '../main/main_screen.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({super.key});
