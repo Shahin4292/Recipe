@@ -31,35 +31,35 @@ class BottomNavBar extends StatelessWidget {
           textSize: 18,
           padding: EdgeInsets.symmetric(
               vertical: size.height * 0.01, horizontal: size.width * 0.01),
-          tabs: const [
+          tabs: [
             GButton(
               icon: CupertinoIcons.home,
-              iconColor: Colors.white,
+              iconColor: selectedItem == 0 ? Colors.white : Colors.blue,
               text: 'Home',
             ),
             GButton(
               icon: Icons.category,
-              iconColor: Colors.white,
+              iconColor: selectedItem == 1 ? Colors.white : Colors.blue,
               text: 'Categories',
             ),
             GButton(
               icon: CupertinoIcons.search,
-              iconColor: Colors.white,
+              iconColor: selectedItem == 2 ? Colors.white : Colors.blue,
               text: 'Search',
             ),
             GButton(
               icon: CupertinoIcons.bookmark_solid,
-              iconColor: Colors.white,
+              iconColor: selectedItem == 3 ? Colors.white : Colors.blue,
               text: 'Saved',
             ),
             GButton(
               icon: CupertinoIcons.shopping_cart,
-              iconColor: Colors.white,
+              iconColor: selectedItem == 4 ? Colors.white : Colors.blue,
               text: 'Shopping',
             ),
           ],
           onTabChange: onTap,
-          selectedIndex: 0,
+          selectedIndex: selectedItem,
         ),
       ),
     );
