@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recipe/view/home/home_screen.dart';
+import 'package:recipe/view/onBoarding/on_boarding_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: HomeScreen(),
+      home: OnBoardingScreen(),
     );
   }
 }

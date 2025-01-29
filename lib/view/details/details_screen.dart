@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:recipe/utils/modify_text.dart';
 import 'package:recipe/view/details/widget/circular_button.dart';
+import 'package:recipe/view/details/widget/custom_clip_path.dart';
+import 'package:recipe/view/details/widget/ingredient_list.dart';
+
+import '../../viewModel/controller/home controller.dart';
 
 class DetailsScreen extends StatelessWidget {
   final String? imageUrl;
   final String? name;
   final String? time;
 
-  const DetailsScreen({super.key, this.imageUrl, this.name, this.time});
+  DetailsScreen({super.key, this.imageUrl, this.name, this.time});
+
+  HomeController homeController = Get.put(HomeController());
 
   @override
   Widget build(BuildContext context) {
@@ -97,7 +104,7 @@ class DetailsScreen extends StatelessWidget {
                     ],
                   ),
                   Container(
-                    height: h * .07,
+                    height: h * .06,
                     width: w,
                     color: Colors.white,
                     child: Row(
@@ -105,6 +112,7 @@ class DetailsScreen extends StatelessWidget {
                         Expanded(
                             flex: 3,
                             child: ClipPath(
+                              clipper: CustomClipPath(),
                               child: Container(
                                 color: Colors.redAccent,
                                 child: Center(
@@ -131,8 +139,19 @@ class DetailsScreen extends StatelessWidget {
                             ))
                       ],
                     ),
-                  )
+                  ),
                 ],
+              ),
+            ),
+            Expanded(
+              child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Column(
+                  children: homeController.userList.value.recipes!
+                      .map((recipes) =>
+                      IngredientList(recipes: recipes))
+                      .toList(),
+                ),
               ),
             )
           ],

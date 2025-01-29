@@ -100,6 +100,18 @@ class HomeScreen extends StatelessWidget {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) => DetailsScreen(
+                                                  time: homeController
+                                                      .userList
+                                                      .value
+                                                      .recipes![index]
+                                                      .cookTimeMinutes
+                                                      .toString(),
+                                                  name: homeController
+                                                      .userList
+                                                      .value
+                                                      .recipes![index]
+                                                      .name
+                                                      .toString(),
                                                   imageUrl: homeController
                                                       .userList
                                                       .value
