@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recipe/utils/modify_text.dart';
 
 class Category extends StatelessWidget {
   final String name, image;
@@ -25,6 +26,13 @@ class Category extends StatelessWidget {
                   image: AssetImage(image),
                   fit: BoxFit.cover,
                 )),
+          ),
+          Center(
+            child: ModifyText(
+              text: name,
+              fontWeight: FontWeight.bold,
+              color: Colors.black45,
+            ),
           )
         ],
       ),
