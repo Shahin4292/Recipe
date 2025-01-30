@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recipe/view/category/recipe_category.dart';
 
 import '../../res/components/bottom_nav_bar.dart';
 import '../home/home_screen.dart';
@@ -51,9 +52,7 @@ class _MainScreenState extends State<MainScreen> {
         },
         children: [
           HomeScreen(),
-          const Center(
-            child: Text("page 2"),
-          ),
+          RecipeCategory(),
           const Center(
             child: Text("page 3"),
           ),
