@@ -10,72 +10,75 @@ class IngredientList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Container(
-          height: 70,
-          width: 74,
-          decoration: BoxDecoration(
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 15),
+      child: Container(
+        height: 100,
+        width: MediaQuery.sizeOf(context).width,
+        decoration: BoxDecoration(
+            color: Colors.white,
             borderRadius: BorderRadius.circular(12),
-            image: DecorationImage(
-                image: NetworkImage(recipes.image.toString()),
-                fit: BoxFit.cover),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(.2),
+                blurRadius: 5,
+                spreadRadius: 2,
+                offset: Offset(0, 3),
+              )
+            ]),
+        child: Padding(
+          padding: const EdgeInsets.all(15),
+          child: Row(
+            spacing: 10,
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.network(recipes.image.toString()),
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                spacing: 4,
+                children: [
+                  Text(
+                    recipes.mealType.toString(),
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 17,
+                        overflow: TextOverflow.ellipsis),
+                  ),
+                  Row(
+                    spacing: 3,
+                    children: [
+                      Text(
+                        recipes.difficulty.toString(),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 17),
+                      ),
+                      Icon(
+                        Icons.star,
+                        size: 20,
+                        color: Colors.green,
+                      ),
+                      Text(
+                        recipes.rating.toString(),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 17),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+              Spacer(),
+              Icon(
+                Icons.add_circle_outline,
+                size: 30,
+                color: Colors.red,
+              )
+            ],
           ),
         ),
-        // SizedBox(
-        //   width: 20,
-        // ),
-        // Column(
-        //   crossAxisAlignment: CrossAxisAlignment.start,
-        //   spacing: 8,
-        //   children: [
-        //     ModifiedText(
-        //       text: property.name,
-        //       size: 16,
-        //       fontWeight: FontWeight.w500,
-        //       color: Colors.black,
-        //     ),
-        //     ModifiedText(
-        //       text:
-        //       'Rp ${property.price.toStringAsFixed(0)} / ${property.priceType}',
-        //       size: 12,
-        //       fontWeight: FontWeight.w400,
-        //       color: AppColor.blueShade,
-        //     ),
-        //     Row(
-        //       spacing: 8,
-        //       children: [
-        //         SvgPicture.asset(
-        //           AppAssets.bedroom,
-        //           height: 13,
-        //           width: 16,
-        //           color: AppColor.darkGrey,
-        //         ),
-        //         ModifiedText(
-        //             text: '${property.bedrooms} Bedroom',
-        //             size: 12,
-        //             fontWeight: FontWeight.w400,
-        //             color: AppColor.darkGrey),
-        //         SizedBox(
-        //           width: 10,
-        //         ),
-        //         SvgPicture.asset(
-        //           AppAssets.bathroom,
-        //           height: 13,
-        //           width: 16,
-        //           color: AppColor.darkGrey,
-        //         ),
-        //         ModifiedText(
-        //           text: '${property.bathrooms} Bathroom',
-        //           size: 12,
-        //           fontWeight: FontWeight.w400,
-        //           color: AppColor.darkGrey,
-        //         ),
-        //       ],
-        //     ),
-        //   ],
-        // )
-      ],
+      ),
     );
   }
 }
