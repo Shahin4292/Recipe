@@ -17,7 +17,7 @@ class RecipeCategory extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
-          spacing: 15,
+          spacing: h*.025,
           children: [
             ModifyText(
               text: "For You",
@@ -41,12 +41,12 @@ class RecipeCategory extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 fontSize: w * .055),
             SizedBox(
-              height: h * .45,
+              height: h * .40,
               child: GridView.builder(
                 itemCount: categoryImage.length,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisSpacing: h * .01,
-                    mainAxisSpacing: w * .021,
+                    mainAxisSpacing: w * .025,
                     crossAxisCount: 4),
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
@@ -60,8 +60,8 @@ class RecipeCategory extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           SizedBox(
-                            height: h * .043,
-                            width: w * .08,
+                            height: h * .050,
+                            width: w * .09,
                             child: Image.asset(categoryImage[index]),
                           ),
                           ModifyText(
@@ -74,6 +74,20 @@ class RecipeCategory extends StatelessWidget {
                   );
                 },
               ),
+            ),
+            ModifyText(
+                text: 'Preference',
+                fontWeight: FontWeight.bold,
+                fontSize: w * .055,
+                color: Colors.black),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Category(name: "Easy", image: image[0]),
+                Category(name: "Quick", image: image[1]),
+                Category(name: "Beef", image: image[2]),
+                Category(name: "Low fat", image: image[3]),
+              ],
             )
           ],
         ),
