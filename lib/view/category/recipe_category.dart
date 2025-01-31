@@ -17,7 +17,7 @@ class RecipeCategory extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
-          spacing: 20,
+          spacing: 15,
           children: [
             ModifyText(
               text: "For You",
@@ -46,6 +46,33 @@ class RecipeCategory extends StatelessWidget {
                     image: image[3],
                   ),
                 ],
+              ),
+            ),
+            ModifyText(
+              text: "For You",
+              fontWeight: FontWeight.bold,
+              fontSize: w * .055,
+            ),
+            SizedBox(
+              height: h * .45,
+              child: GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 4),
+                itemBuilder: (BuildContext context, int index) {
+                  return Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Center(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [],
+                      ),
+                    ),
+                  );
+                },
               ),
             )
           ],
