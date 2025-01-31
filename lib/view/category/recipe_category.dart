@@ -29,34 +29,24 @@ class RecipeCategory extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Category(
-                    name: name[0],
-                    image: image[0],
-                  ),
-                  Category(
-                    name: name[1],
-                    image: image[1],
-                  ),
-                  Category(
-                    name: name[2],
-                    image: image[2],
-                  ),
-                  Category(
-                    name: name[3],
-                    image: image[3],
-                  ),
+                  Category(name: name[0], image: image[0]),
+                  Category(name: name[1], image: image[1]),
+                  Category(name: name[2], image: image[2]),
+                  Category(name: name[3], image: image[3]),
                 ],
               ),
             ),
             ModifyText(
-              text: "For You",
-              fontWeight: FontWeight.bold,
-              fontSize: w * .055,
-            ),
+                text: "For You",
+                fontWeight: FontWeight.bold,
+                fontSize: w * .055),
             SizedBox(
               height: h * .45,
               child: GridView.builder(
+                itemCount: categoryImage.length,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisSpacing: h * .01,
+                    mainAxisSpacing: w * .021,
                     crossAxisCount: 4),
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
@@ -68,7 +58,17 @@ class RecipeCategory extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [],
+                        children: [
+                          SizedBox(
+                            height: h * .043,
+                            width: w * .08,
+                            child: Image.asset(categoryImage[index]),
+                          ),
+                          ModifyText(
+                              text: categories[index],
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black45),
+                        ],
                       ),
                     ),
                   );
