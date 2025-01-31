@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:recipe/viewModel/controller/home%20controller.dart';
 
 import '../../res/assets/image_path.dart';
 import '../main/main_screen.dart';
 
 class OnBoardingScreen extends StatelessWidget {
-  const OnBoardingScreen({super.key});
+  OnBoardingScreen({super.key});
+
+  HomeController homeController = Get.put(HomeController());
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +21,7 @@ class OnBoardingScreen extends StatelessWidget {
         child: Stack(
           children: [
             Positioned(
-              top: 30,
+                top: 30,
                 child: Container(
                   height: size.height * 0.79,
                   width: size.width,
@@ -64,12 +69,7 @@ class OnBoardingScreen extends StatelessWidget {
                             backgroundColor: Colors.blue,
                             fixedSize:
                                 Size(size.width * 0.8, size.height * 0.055)),
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const MainScreen()));
-                        },
+                        onPressed: homeController.navigateToBottom,
                         child: const Text(
                           "Get Started",
                           style: TextStyle(
