@@ -147,6 +147,7 @@ class DetailsScreen extends StatelessWidget {
               child: SingleChildScrollView(
                 scrollDirection: Axis.vertical,
                 child: Column(
+                  spacing: 10,
                   children: homeController.userList.value.recipes!
                       .map((recipes) =>
                       IngredientList(recipes: recipes))
