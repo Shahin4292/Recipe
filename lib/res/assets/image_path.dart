@@ -7,12 +7,12 @@ class ImagePath {
   static String onBoarding = "assets/png/onboarding_profile.png";
   static String explore = "assets/png/explore.png";
   static String drink = "assets/png/drink.png";
-  static String fastFood = "assets/fast_food.png";
-  static String fishAndChips = "assets/fish_and_chips.png";
-  static String iceCream = "assets/ice_cream.png";
-  static String orangeJuice = "assets/orange_juice.png";
-  static String popcorn = "assets/popcorn.png";
-  static String sweets = "assets/sweets.png";
-  static String tasty = "assets/tasty.png";
-  static String vegetable = "assets/vegetable.png";
+  static String fastFood = "assets/png/fast_food.png";
+  static String fishAndChips = "assets/png/fish_and_chips.png";
+  static String iceCream = "assets/png/ice_cream.png";
+  static String orangeJuice = "assets/png/orange_juice.png";
+  static String popcorn = "assets/png/popcorn.png";
+  static String sweets = "assets/png/sweets.png";
+  static String tasty = "assets/png/tasty.png";
+  static String vegetable = "assets/png/vegetable.png";
 }
