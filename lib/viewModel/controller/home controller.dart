@@ -49,6 +49,10 @@ class HomeController extends GetxController {
     });
   }
 
+  void navigateToBottom(){
+    Get.toNamed('/main_screen');
+  }
+
 // Future<RecipeModel?> getRecipeApi() async {
 //   final response = await http.get(Uri.parse(AppUrl.url));
 //   var data = jsonDecode(response.body.toString());
