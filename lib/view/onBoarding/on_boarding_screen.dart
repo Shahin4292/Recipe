@@ -69,7 +69,9 @@ class OnBoardingScreen extends StatelessWidget {
                             backgroundColor: Colors.blue,
                             fixedSize:
                                 Size(size.width * 0.8, size.height * 0.055)),
-                        onPressed: homeController.navigateToBottom,
+                        onPressed: () {
+                          Get.to(MainScreen());
+                        },
                         child: const Text(
                           "Get Started",
                           style: TextStyle(
