@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../utils/tab_item.dart';
+import '../../view/home/widget/item_show.dart';
 import '../color/app_color.dart';
 
 
@@ -13,6 +14,8 @@ class TabBarWidget extends StatelessWidget {
     return DefaultTabController(
         length: 4,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
               color: Colors.white,
@@ -43,12 +46,18 @@ class TabBarWidget extends StatelessWidget {
                 ],
               ),
             ),
-            // SizedBox(
-            //   height: size.height * .020,
-            //   child: TabBarView(
-            //     children: [],
-            //   ),
-            // ),
+            SizedBox(height: 20,),
+            Container(
+              height: size.height * .4,
+              child: TabBarView(
+                children: [
+                  ItemShow(),
+                  ItemShow(),
+                  ItemShow(),
+                  ItemShow(),
+                ],
+              ),
+            ),
           ],
         ));
   }
