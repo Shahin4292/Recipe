@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:recipe/res/components/category_list.dart';
 import 'package:recipe/utils/modify_text.dart';
 import 'package:recipe/view/category/widget/category.dart';
 
+import '../all_recipe/all_recipe.dart';
+
 class RecipeCategory extends StatelessWidget {
-  const RecipeCategory({super.key});
+  const RecipeCategory({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +23,7 @@ class RecipeCategory extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
-          spacing: h*.025,
+          spacing: h * .025,
           children: [
             ModifyText(
               text: "For You",
@@ -49,26 +55,33 @@ class RecipeCategory extends StatelessWidget {
                     mainAxisSpacing: w * .025,
                     crossAxisCount: 4),
                 itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Center(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SizedBox(
-                            height: h * .050,
-                            width: w * .09,
-                            child: Image.asset(categoryImage[index]),
-                          ),
-                          ModifyText(
-                              text: categories[index],
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black45),
-                        ],
+                  return GestureDetector(
+                    onTap: () {
+                      Get.to(() => AllRecipe(
+                            recipe: categories[index],
+                          ));
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Center(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              height: h * .050,
+                              width: w * .09,
+                              child: Image.asset(categoryImage[index]),
+                            ),
+                            ModifyText(
+                                text: categories[index],
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black45),
+                          ],
+                        ),
                       ),
                     ),
                   );

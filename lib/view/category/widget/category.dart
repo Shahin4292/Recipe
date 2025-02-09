@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:recipe/utils/modify_text.dart';
+import 'package:recipe/view/all_recipe/all_recipe.dart';
 
 class Category extends StatelessWidget {
   final String name, image;
